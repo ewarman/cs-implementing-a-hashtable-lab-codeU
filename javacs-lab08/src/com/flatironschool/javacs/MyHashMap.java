@@ -4,6 +4,7 @@
 package com.flatironschool.javacs;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -16,6 +17,8 @@ import java.util.Map;
  *
  */
 public class MyHashMap<K, V> extends MyBetterMap<K, V> implements Map<K, V> {
+	
+	public List<Entry> mapEntries = new ArrayList<Entry>();
 	
 	// average number of entries per map before we rehash
 	protected static final double FACTOR = 1.0;
@@ -40,8 +43,14 @@ public class MyHashMap<K, V> extends MyBetterMap<K, V> implements Map<K, V> {
 	 * 
 	 */
 	protected void rehash() {
-        // TODO: fill this in.
-        throw new UnsupportedOperationException();
+		for (MyLinearMap<K,V> map : maps) {
+			mapEntries.addAll(map.getEntries());
+		}
+		makeMaps(maps.size());
+		//maps.clear();
+		for (Entry entry : mapEntries) {
+			super.put((K)entry.getKey(), (V)entry.getValue());
+		}       
 	}
 
 	/**

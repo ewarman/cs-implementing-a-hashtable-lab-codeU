@@ -21,7 +21,7 @@ import java.util.Set;
  */
 public class MyLinearMap<K, V> implements Map<K, V> {
 
-	private List<Entry> entries = new ArrayList<Entry>();
+	protected List<Entry> entries = new ArrayList<Entry>();
 
 	public class Entry implements Map.Entry<K, V> {
 		private K key;

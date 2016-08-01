@@ -116,6 +116,7 @@ public class MyLinearMapTest {
 	public void testPutAll() {
 		Map<String, Integer> m = new HashMap<String, Integer>();
 		m.put("Six", 6);
+		//assertThat(m.mapEntries.size(), is(4));
 		m.put("Seven", 7);
 		m.put("Eight", 8);
 		map.putAll(m);
